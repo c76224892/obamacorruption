@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obama's Corruption Secrets</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #000000;
+      color: #00FF00;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Enhanced Background Animation */
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      background: #000000;
+    }
+
+    /* Matrix-like Falling Code */
+    .matrix {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .matrix-row {
+      display: flex;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: scroll 10s linear infinite;
+    }
+
+    .matrix-row span {
+      display: inline-block;
+      font-size: 16px;
+      line-height: 20px;
+      color: #00FF00;
+      opacity: 0.8;
+      animation: flicker 3s infinite;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateY(100%); }
+      100% { transform: translateY(-100%); }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 0.4; }
+    }
+
+    /* Geometric Shapes Animation */
+    .geometric {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 2px solid #00FF00;
+      border-radius: 50%;
+      top: 25%;
+      left: 75%;
+      animation: moveShape 20s linear infinite;
+      opacity: 0.2;
+    }
+
+    .geometric::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      border: 2px solid #00FF00;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0.5);
+      animation: rotateShape 10s linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes moveShape {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-50px, 50px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes rotateShape {
+      from { transform: translate(-50%, -50%) rotate(0deg) scale(0.5); }
+      to { transform: translate(-50%, -50%) rotate(360deg) scale(0.5); }
+    }
+
+    /* Main Title with Typing Effect */
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #00FF00;
+      position: relative;
+      overflow: hidden;
+      border-right: .15em solid #00FF00;
+      white-space: nowrap;
+      letter-spacing: .15em;
+      animation: typing 4s steps(40, end), blinkCaret .75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blinkCaret {
+      from, to { border-color: transparent }
+      50% { border-color: #00FF00 }
+    }
+
+    /* Text: "Obama's Corruption Secrets" with Fade Effect */
+    .obama-text {
+      font-size: 2em;
+      color: #00FF00;
+      text-shadow: 0 0 10px #00FF00;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 3s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Introductory Text */
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      text-shadow: 0 0 5px #00FF00;
+      animation: fadeInText 2s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInText {
+      to { opacity: 1; }
+    }
+
+    /* Input and Button Container */
+    .input-container {
+      margin-top: 20px;
+      max-width: 400px;
+      width: 100%;
+      animation: fadeInInput 2s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInInput {
+      to { opacity: 1; }
+    }
+
+    .styled-input {
+      background-color: #000000;
+      color: #00FF00;
+      border: 2px solid #00FF00;
+      padding: 10px;
+      font-size: 1.2em;
+      border-radius: 4px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 15px;
+      caret-color: #00FF00;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .styled-input::placeholder {
+      color: #00FF00;
+      opacity: 0.7;
+    }
+
+    .styled-input:focus {
+      border-color: #00CC00;
+      box-shadow: 0 0 10px #00CC00;
+      outline: none;
+    }
+
+    .styled-button {
+      background-color: #00FF00;
+      color: #000000;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, transform 0.2s;
+      width: 100%;
+      box-shadow: 0 0 5px #00FF00;
+    }
+
+    .styled-button:hover {
+      background-color: #00CC00;
+      transform: scale(1.05);
+    }
+
+    /* Telegram Link with Shine Animation */
+    #telegram-link {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #00FF00;
+      text-decoration: none;
+      border: 2px solid #00FF00;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s, transform 0.2s;
+      display: none;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    #telegram-link::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: skewX(-20deg);
+      animation: shine 2s infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -50%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    #telegram-link:hover {
+      background-color: #00CC00;
+      color: #000000;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8em;
+      color: #00FF00;
+      opacity: 0.8;
+      text-shadow: 0 0 5px #00FF00;
+      animation: fadeInFooter 2s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInFooter {
+      to { opacity: 0.8; }
+    }
+
+    footer a {
+      color: #00FF00;
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #00CC00;
+    }
+  </style>
+</head>
+<body>
+  <!-- Enhanced Background Animation -->
+  <div class="background">
+    <!-- Matrix-like Falling Code -->
+    <div class="matrix">
+      <!-- Generate multiple rows of code -->
+      <div class="matrix-row">
+        <span>O</span><span>B</span><span>A</span><span>M</span><span>A</span><span>'</span><span>S</span><span>&nbsp;</span><span>C</span><span>O</span><span>R</span><span>R</span><span>U</span><span>P</span><span>T</span><span>I</span><span>O</span><span>N</span><span>&nbsp;</span><span>S</span><span>E</span><span>C</span><span>R</span><span>E</span><span>T</span><span>S</span>
+      </div>
+      <!-- Repetir filas con ligeras variaciones -->
+      <div class="matrix-row">
+        <span>O</span><span>B</span><span>A</span><span>M</span><span>A</span><span>'</span><span>S</span><span>&nbsp;</span><span>C</span><span>O</span><span>R</span><span>R</span><span>U</span><span>P</span><span>T</span><span>I</span><span>O</span><span>N</span><span>&nbsp;</span><span>S</span><span>E</span><span>C</span><span>R</span><span>E</span><span>T</span><span>S</span>
+      </div>
+      <!-- Añadir más filas según se desee -->
+      <div class="matrix-row">
+        <span>O</span><span>B</span><span>A</span><span>M</span><span>A</span><span>'</span><span>S</span><span>&nbsp;</span><span>C</span><span>O</span><span>R</span><span>R</span><span>U</span><span>P</span><span>T</span><span>I</span><span>O</span><span>N</span><span>&nbsp;</span><span>S</span><span>E</span><span>C</span><span>R</span><span>E</span><span>T</span><span>S</span>
+      </div>
+      <div class="matrix-row">
+        <span>O</span><span>B</span><span>A</span><span>M</span><span>A</span><span>'</span><span>S</span><span>&nbsp;</span><span>C</span><span>O</span><span>R</span><span>R</span><span>U</span><span>P</span><span>T</span><span>I</span><span>O</span><span>N</span><span>&nbsp;</span><span>S</span><span>E</span><span>C</span><span>R</span><span>E</span><span>T</span><span>S</span>
+      </div>
+    </div>
+
+    <!-- Geometric Shapes Animation -->
+    <div class="geometric"></div>
+  </div>
+
+  <!-- Header Text -->
+  <div class="obama-text">
+    OBAMA'S CORRUPTION SECRETS
+  </div>
+
+  <!-- Main Title with Typing Effect -->
+  <h1>The Truth Unveiled</h1>
+
+  <!-- Introductory Text -->
+  <p id="intro-text">
+    Hidden deals, untold truths, and a trail of corruption. Join the private Telegram group to uncover secrets about Obama's administration that they never wanted you to see.
+  </p>
+
+  <!-- Input Container -->
+  <div class="input-container">
+    <input type="text" id="wallet-address" class="styled-input" placeholder="Enter your Solana wallet address" aria-label="Solana Wallet Address"/>
+    <button onclick="submitWallet()" class="styled-button">Access Telegram Group</button>
+  </div>
+
+  <!-- Telegram Link -->
+  <a href="https://t.me/+tR-lrrYVXxczOWM0" target="_blank" id="telegram-link">Join Our Telegram Group</a>
+
+  <!-- Footer -->
+  <footer>
+    <p id="footer-text">
+      "Uncover the truths they thought they buried forever..."<br>
+      <a href="https://yourwebsite.com/about" target="_blank">Learn More</a>
+    </p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    /**
+     * Función para mostrar notificaciones en la página
+     * @param {string} message - El mensaje a mostrar
+     * @param {string} type - Tipo de notificación ('info', 'success', 'error')
+     */
+    function showNotification(message, type='info') {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      if (type === 'error') {
+        notification.style.borderColor = '#cc0000';
+        notification.style.color = '#ffdddd';
+        notification.style.backgroundColor = '#330000';
+      } else if (type === 'success') {
+        notification.style.borderColor = '#00CC00';
+        notification.style.color = '#00FF00';
+        notification.style.backgroundColor = '#003300';
+      } else {
+        notification.style.borderColor = '#00FF00';
+        notification.style.color = '#00FF00';
+        notification.style.backgroundColor = '#001a00';
+      }
+      notification.style.display = 'block';
+      
+      // Remover la notificación después de 3 segundos
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 3000);
+    }
+
+    /**
+     * Función para validar la dirección de cartera Solana
+     * @param {string} wallet - La dirección de cartera a validar
+     * @returns {boolean} - Devuelve true si es válida, false de lo contrario
+     */
+    function isValidWallet(wallet) {
+      return /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(wallet);
+    }
+
+    /**
+     * Función para manejar el envío de la dirección de cartera
+     */
+    function submitWallet() {
+      const wallet = document.getElementById('wallet-address').value.trim();
+      const telegramLink = document.getElementById('telegram-link');
+
+      if (isValidWallet(wallet)) {
+        showNotification('Wallet address verified. Access granted!', 'success');
+        // Revelar el enlace de Telegram después de un breve retraso
+        setTimeout(() => {
+          telegramLink.style.display = 'inline-block';
+        }, 1000);
+      } else {
+        showNotification('Invalid Solana wallet address. Please try again.', 'error');
+      }
+    }
+
+    // Evitar el envío del formulario al presionar Enter dentro del input
+    document.getElementById('wallet-address').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        submitWallet();
+      }
+    });
+  </script>
+  
+  <!-- Notification Area -->
+  <div id="notification" role="alert" style="position: fixed; top: 20px; right: 20px; background-color: #000000; color: #00FF00; padding: 15px; border: 1px solid #00FF00; border-radius: 4px; box-shadow: 0 0 10px #00FF00; display: none; z-index: 1000;"></div>
+</body>
+</html>
